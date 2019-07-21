@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Emerald Sword</title>
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
+      <!-- Google fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700&display=swap" rel="stylesheet">
+      <!-- Custom css -->
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <!-- The Modal -->
+      <div id="start-modal" class="modal">
+         <!-- Modal content -->
+         <div class="modal-content">
+            <div class="modal-header">
+               <img class="dragon-one" src="images/dragon-flying-one.gif" alt="">
+               <img class="game-logo" src="images/emerald-sword.png" alt="Game logo">
+               <img class="dragon-two" src="images/dragon-flying-one.gif" alt="">
+            </div>
+            <div id="instructions">
+               <h3 id="opening-text">For the king for the land for the mountains.
+                  For the green valleys where dragons fly.
+                  For the glory the power to win the black lord,
+                  I will search for the emerald sword
+               </h3>
+            </div>
+            <button class="close">Play</button>
+         </div>
+      </div>
+      <div id="end-modal" class="modal-two">
+         <!-- Modal content -->
+         <div class="modal-content-two box">
+            <h1 id="end-title">You have won the Emerald Sword!</h1>
+            <h2 id="winner-phrase"><span id="match-winner"></span> won the battle!</h2>
+            <div>
+               <img id="winner-img" class="player-img" src=""/>
+               <img id="winner-gif" class="player-img" src=""/>
+               <img id="loser-gif" class="player-img" style="transform: rotateY(180deg);" src=""/>
+            </div>
+            <div>
+               <button class="rematch">Play</button>
+            </div>
+         </div>
+      </div>
+      <!-- Rules modal -->
+      <div id="rules-modal" class="rules-modal">
+         <div class="modal-content-rules">
+            <span id="close-btn" class="close-btn">&times;</span>
+   
+            <h1>Game Rules</h1>
+            <ul>
+               <li>Players can move up to 3 spaces per turn</li>
+               <li>Landing on a weapon will pick it up and drop the old one.</li>
+               <li>When players cross paths, battle begins.</li>
+               <li>Player on turn attack first.</li>
+               <li>At the end of turn a player can choose to defend until next turn.</li>
+               <li>Landing on a bomb will deal damage of 15 points</li>
+               <li>Landing on a potion will heal player by 15 points</li>
+            </ul>
+         </div>
+      </div>
+      <!-- Prompt when characters meet to fight, outside Flex -->
+      <h1 id="fight">Draw your weapons!!</h1>
+      <div class="game-logo" id="game-logo">
+         <img src="images/emerald-sword.png" alt="Game logo">
+      </div>
+      <button type="button" class="rules-btn" id="rules-btn">Rules</button>
+      <button type="button" class="reset-btn" id="reset-btn">Reset</button>
+      <!-- Board and sidebars -->
+      <div id="game">
+         <!-- sidebar player 1 -->
+         <div id="player1-box" class="stats-box box">
+            <h2>Knight</h2>
+            <img class="player-img" src="images/knight-stand.png"/>
+            <h3>Health: </i> <span class="info-box" id="player1-health"></span></h3>
+            <h3>Weapon: <span class="info-box" id="player1-weapon"></span></h3>
+            <img class="weapon-display" id="w-display-1" src="" />
+            <h3>Damage: <span class="info-box" id="player1-damage"></span></h3>
+            <button id="attack1" class="fightButton1 attackButton">Attack</button>
+            <button id="defend1" class="fightButton1 defendButton">Defend</button>
+         </div>
+         <!-- Central Board -->
+         <div id="table">
+            <div class="grid-container box"></div>
+            <div id="element"></div>
+         </div>
+         <!-- sidebar player 2 -->
+         <div id="player2-box" class="stats-box box">
+            <h2>Wizard</h2>
+            <img class="player-img" src="images/wizard-stand.png" style="transform: rotateY(180deg);"/>
+            <h3>Health: </i> <span class="info-box" id="player2-health"></span></h3>
+            <h3>Weapon: <span class="info-box" id="player2-weapon"></span></h3>
+            <img class="weapon-display" id="w-display-2" src="" />
+            <h3>Damage: <span class="info-box" id="player2-damage"></span></h3>
+            <button id="attack2" class="fightButton2 attackButton">Attack</button>
+            <button id="defend2" class="fightButton2 defendButton">Defend</button>
+         </div>
+      </div>
+
+
+      <audio>
+         <source src="sounds/loop-1.mp3" type="audio/mp3">
+         <source src="sounds/loop-2.mp3" type="audio/mp3">
+         <source src="sounds/loop-3.mp3" type="audio/mp3">
+         <source src="sounds/loop-4.mp3" type="audio/mp3">
+         <source src="sounds/loop-5.mp3" type="audio/mp3">   
+      </audio>
+
+      <!-- JQUERY -->
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+         crossorigin="anonymous"></script>
+      <script src="https://cdn.rawgit.com/admsev/jquery-play-sound/master/jquery.playSound.js"></script>
+      <script src="script.js"></script>
+   </body>
+</html>
