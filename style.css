@@ -23,12 +23,6 @@ body {
 	color: #fff;
 }
 
-.heart {
-	font-size: 40px;
-	color: #d30c0c;
-	font-weight: 700;
-}
-
 .info-box {
 	border: 2px solid #000;
 	border-radius: 4px;
@@ -157,8 +151,10 @@ body {
 }
 
 .possible:hover {
-	background: rgba(165, 214, 167, 0.5);
-	z-index: 1;
+	background-image: url('images/steps.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .grid-container {
@@ -173,7 +169,7 @@ body {
 }
 
 .grid-item {
-	border: 1px solid #222;
+	border: 1px solid #000;
 	width: 70px;
 	height: 70px;
 }
