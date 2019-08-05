@@ -132,6 +132,7 @@
 
     // Clean the board
     function reset() {
+        statReset();
         $('.grid-item').each(function() {
             const element = $(this);
             element.removeClass("block-one");
@@ -151,7 +152,6 @@
             element.removeClass("possible");
             element.removeClass("unavailable");
             fightMode = false;
-            statReset();
             $('.fightButton1').css('display', 'none');
             $('.fightButton2').css('display', 'none');
             $.stopSound('sounds/loop-2.mp3');
@@ -204,6 +204,7 @@
           displayStats(player2);
           weaponDisplay(player1);
           weaponDisplay(player2);
+          statReset();
           $.playSound('sounds/loop-2.mp3');
     }
 
@@ -659,12 +660,12 @@
 
         // Reset stats
         function statReset() {
-            document.getElementById("player1-weapon").innerHTML = "";
-            document.getElementById("player1-health").innerHTML = "";
-            document.getElementById("player1-damage").innerHTML = "";
-            document.getElementById("player2-weapon").innerHTML = "";
-            document.getElementById("player2-health").innerHTML = "";
-            document.getElementById("player2-damage").innerHTML = "";
+            document.getElementById("player1-weapon").innerHTML = weapons[0].name;
+            document.getElementById("player1-damage").innerHTML = weapons[0].damage;
+            document.getElementById("player2-weapon").innerHTML = weapons[0].name;
+            document.getElementById("player2-damage").innerHTML = weapons[0].damage;
+            document.getElementById('w-display-1').src = weapons[0].image;
+            document.getElementById('w-display-2').src = weapons[0].image;
         }
 
 
