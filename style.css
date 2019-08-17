@@ -9,18 +9,20 @@ body {
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	overflow: auto;
-	
 }
+
 
 /*========== sidebars ==========*/
 
 .stats-box h2 {
 	font-size: 40px;
 	color: #fff;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
 }
 
 .stats-box h3 {
 	color: #fff;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
 }
 
 .info-box {
@@ -31,10 +33,10 @@ body {
 	padding: 5px;
 	margin-left: 5px;
 	font-weight: 100;
+	text-shadow: none;
 }
 
 .defendButton {
-	font-family: 'Cinzel Decorative', cursive;
 	margin: 5px;
 	width: 100px;
 	height: 40px;
@@ -49,10 +51,10 @@ body {
 
 .defendButton:hover {
 	background: #2EBC51;
+	border: 2px solid #000;
 }
 
 .attackButton {
-	font-family: 'Cinzel Decorative', cursive;
 	margin: 5px;
 	width: 100px;
 	height: 40px;
@@ -67,6 +69,7 @@ body {
 
 .attackButton:hover {
 	background: #FF6F4F;
+	border: 2px solid #000;
 }
 
 .rules-btn {
@@ -129,10 +132,14 @@ body {
 
 .player-turn {
 	border: 2px solid #d30c0c;
-	background-color: rgba(165, 214, 167, 0.7);
+	background-color: rgba(165, 214, 167, 0.6);
 	position: relative;
 	bottom: 10px;
 	box-shadow: 6px 14px 8px;
+}
+
+.defend-shield {
+	width: 300px;
 }
 
 
@@ -145,7 +152,7 @@ body {
 }
 
 .possible {
-	background: rgba(165, 214, 167, 0.3);
+	background: rgba(165, 214, 167, 0.2);
 	transition: 0.1s ease-in;
 	cursor: pointer;
 }
@@ -155,9 +162,11 @@ body {
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
+	/* background: rgba(165,214,167, 0.3); */
 }
 
 .grid-container {
+	box-sizing: border-box;
 	display: block;
 	display: grid;
 	max-width: 720px;
@@ -165,7 +174,7 @@ body {
 	grid-template: repeat(10, 1fr)/repeat(10, 1fr);
 	margin: 20px auto;
 	background-image: url("images/grid-tile1.jpg");
-	background-size: 60px;
+	background-size: 70px;
 }
 
 .grid-item {
@@ -254,14 +263,6 @@ body {
 	margin: auto;
 }
 
-.weapon-6 {
-	background-image: url("images/emerald.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 30px 70px;
-	margin: auto;
-}
-
 .player-1 {
 	background-image: url("images/knight-stand.png");
 	background-position: center;
@@ -291,24 +292,21 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	/* background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.8); */
+	background-color: rgb(50, 50, 50);
 }
 
 
 /* Modal Content */
 
-#opening-text {
-	background: rgba(95, 95, 95, 0.3);
+.opening-text {
 	text-align: center;
 	font-size: 2rem;
-	color: #fff;
+	color: #1ea238;
 	margin: 100px;
-	padding: 40px;
-	border-radius: 4px;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
-#instructions {
+.instructions {
 	border-radius: 5px;
 	padding: 30px;
 	width: 60%;
@@ -316,51 +314,26 @@ body {
 	text-align: justify;
 }
 
-#end-title {
+.end-title {
 	font-size: 80px;
-	color: #2EBC51;
+	color: #1ea238;
+	text-shadow: 4px 10px 6px #000;
 }
 
-#fight {
+.fight {
 	font-size: 80px;
-	color: #fff;
-}
-
-#winner-img {
-	margin: auto;
-	display: block;
-	width: 200px;
-}
-
-.modal-content {
-	background-image: url("images/hero1.jpg");
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	display: block;
-	color: #eee;
-	margin: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.dragon-one {
-	height: 300px;
-	width: 400px;
-}
-
-.dragon-two {
-	height: 300px;
-	width: 400px;
-	transform: rotateY(180deg);
+	color: #1ea238;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
 }
 
 .modal-content-two {
 	background-image: url("images/hero.jpg");
 	background-size: cover;
 	background-position: center;
+	background-position: center;
 	background-attachment: fixed;
-	color: #eee;
+	color: #1ea238;
+	text-shadow: 4px 8px 6px #000;
 	margin: auto;
 	padding: 20px;
 	border-radius: 8px;
@@ -374,7 +347,6 @@ body {
 
 .close,
 .rematch {
-	font-family: 'Cinzel Decorative', cursive;
 	margin: 5px;
 	width: 150px;
 	height: 50px;
@@ -392,45 +364,55 @@ body {
 	background: #FF6F4F;
 }
 
+/******** Opening screen modal ***********/
 
-/*========= Rules modal ============*/
+.modal-content {
+	display: block;
+}
+
+.dragon-one {
+	height: 300px;
+	width: 400px;
+}
+
+.dragon-two {
+	height: 300px;
+	width: 400px;
+	transform: rotateY(180deg);
+}
+
+/******** Rules button modal ***********/
 
 .rules-modal {
-	background-image: url("images/modal-scrool.png");
-	background-size: contain;
-	background-repeat: no-repeat;
 	display: none;
-	margin: 200px auto;
-	height: 800px;
-	width: 500px;
-}
-
-.modal-content-rules {
-	display: flex;
-	flex-direction: column;
 	height: 100%;
+	width: 100%;
+	background-image: url("images/modal-scrool.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 700px;
+	margin: 200px auto;
+	padding: 60px;
+	width: 600px;
 }
 
-.modal-content-rules h1 {
+.modal-content h1 {
 	text-align: center;
-	color: #6B4627;
-	margin-bottom: 30px;
+	margin-top: 100px;
+	margin-bottom: 50px;
 }
 
-.modal-content-rules li {
-	text-align: left;
-	position: relative;
-	left: 65px;
-	font-size: 15px;
+.modal-content li {
+	display: block;
+	margin: auto;
+	font-size: 16px;
+	line-height: 2rem;
 	width: 70%;
-	color: #6B4627;
 }
 
 .close-btn {
-	position: relative;
-	bottom: 50px;
-	width: 50px;
-	color: #fff;
+	color: #000;
+	float: right;
 	font-size: 4rem;
 	transition: 1s;
 }
@@ -439,9 +421,8 @@ body {
 .close-btn:focus {
 	text-decoration: none;
 	cursor: pointer;
-	color: #000;
+	color: #fff;
 }
-
 
 /*======== animations =========*/
 
@@ -457,6 +438,9 @@ body {
 	0% {
 		opacity: 0;
 	}
+	50% {
+		opacity: 0.5;
+	}
 	100% {
 		opacity: 1;
 	}
@@ -464,7 +448,7 @@ body {
 
 #end-title {
 	animation-name: end-title-animation;
-	animation-duration: 2s;
+	animation-duration: 3s;
 	animation-timing-function: ease-out;
 	animation-iteration-count: 1;
 	animation-delay: 0s;
@@ -474,7 +458,29 @@ body {
 	0% {
 		opacity: 0;
 	}
+	50% {
+		opacity: 0.5;
+	}
 	100% {
 		opacity: 1;
 	}
+}
+
+
+/***********************************/
+
+.defend-message, #player {
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+	width: 30%;
+	color: #fff;
+	font-size: 40px;
+	position: relative;
+	bottom: 50px;
+	padding: 10px;
+	border: 2px solid #d30c0c;
+	border-radius: 5px;
+	background-color: rgba(165, 214, 167, 0.6);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
 }
