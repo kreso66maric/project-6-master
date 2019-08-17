@@ -605,6 +605,7 @@ function attackFunc() {
 function gameOver() {
     if (player1.health <= 0) {
         $.playSound('sounds/loop-2.mp3');
+        $.stopSound('sounds/loop-1.mp3');
         $('.fightButton1').hide();
         $('.fightButton2').hide();
         $('#end-modal').show();
@@ -615,6 +616,7 @@ function gameOver() {
     }
     if (player2.health <= 0) {
         $.playSound('sounds/loop-2.mp3');
+        $.stopSound('sounds/loop-1.mp3');
         $('.fight-button1').hide();
         $('.fight-button2').hide();
         $('#end-modal').show();
