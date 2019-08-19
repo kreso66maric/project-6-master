@@ -41,7 +41,7 @@ body {
 	width: 100px;
 	height: 40px;
 	border-radius: 3px;
-	border: 2px solid #2EBC51;
+	border: 2px solid #1ea238;
 	font-size: 1.25rem;
 	color: #fff;
 	cursor: pointer;
@@ -50,7 +50,7 @@ body {
 }
 
 .defendButton:hover {
-	background: #2EBC51;
+	background: #1ea238;
 	border: 2px solid #000;
 }
 
@@ -110,9 +110,17 @@ body {
 	background: transparent;
 }
 
-.weapon-display {
+#w-display-1 {
 	max-width: 200px;
 	max-height: 200px;
+	transform: rotate(45deg);
+	transition: transform 3s ease-in;
+}
+
+#w-display-2 {
+	max-width: 200px;
+	max-height: 200px;
+	transform: rotate(-45deg);
 }
 
 .stats-box {
@@ -139,7 +147,21 @@ body {
 }
 
 .defend-shield {
-	width: 300px;
+	width: 250px;
+}
+
+.defend-message {
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+	width: 20%;
+	color: #fff;
+	font-size: 35px;
+	padding: 10px;
+	border: 2px solid #d30c0c;
+	border-radius: 5px;
+	background-color: rgba(165, 214, 167, 0.6);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
 }
 
 .music-credits {
@@ -157,6 +179,10 @@ body {
 
 .music-credits a:hover {
 	border-bottom: 2px solid #1ea238;
+}
+
+.player-rotate {
+	transform: rotateY(180deg);
 }
 
 
@@ -309,7 +335,8 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgb(50, 50, 50);
+	/* background-color: rgb(50, 50, 50); */
+	background: linear-gradient(180deg, rgba(135,0,0,1) 0%, rgba(2,0,36,1) 100%, rgba(209,209,209,1) 100%);
 }
 
 
@@ -355,7 +382,7 @@ body {
 	padding: 20px;
 	border-radius: 8px;
 	border: 1px solid #222;
-	width: 80%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -402,29 +429,31 @@ body {
 
 .rules-modal {
 	display: none;
-	height: 100%;
-	width: 100%;
 	background-image: url("images/modal-scrool.png");
 	background-repeat: no-repeat;
 	background-size: contain;
 	height: 700px;
 	margin: 200px auto;
-	padding: 60px;
 	width: 600px;
 }
 
-.modal-content h1 {
-	text-align: center;
-	margin-top: 100px;
-	margin-bottom: 50px;
+.modal-content ul {
+	text-align: start;
+	margin-left: 100px;
+	padding-top: 120px;
+	line-height: 28px;
 }
 
 .modal-content li {
+	word-spacing: 3px;
+	letter-spacing: 1px;
 	display: block;
-	margin: auto;
 	font-size: 16px;
-	line-height: 2rem;
-	width: 70%;
+	width: 75%;
+}
+
+.stamp {
+	width: 50px;
 }
 
 .close-btn {
@@ -463,12 +492,30 @@ body {
 	}
 }
 
+
 #end-title {
-	animation-name: end-title-animation;
-	animation-duration: 3s;
-	animation-timing-function: ease-out;
-	animation-iteration-count: 1;
-	animation-delay: 0s;
+	-webkit-animation-name: end-title-animation;
+	        animation-name: end-title-animation;
+	-webkit-animation-duration: 3s;
+	        animation-duration: 3s;
+	-webkit-animation-timing-function: ease-out;
+	        animation-timing-function: ease-out;
+	-webkit-animation-iteration-count: 1;
+	        animation-iteration-count: 1;
+	-webkit-animation-delay: 0s;
+	        animation-delay: 0s;
+}
+
+@-webkit-keyframes end-title-animation {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes end-title-animation {
@@ -483,21 +530,4 @@ body {
 	}
 }
 
-
 /***********************************/
-
-.defend-message, #player {
-    display: none;
-    margin: 0 auto;
-    text-align: center;
-	width: 30%;
-	color: #fff;
-	font-size: 40px;
-	position: relative;
-	bottom: 50px;
-	padding: 10px;
-	border: 2px solid #d30c0c;
-	border-radius: 5px;
-	background-color: rgba(165, 214, 167, 0.6);
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px #000;
-}

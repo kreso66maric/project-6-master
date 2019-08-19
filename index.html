@@ -3,16 +3,26 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Emerald Sword</title>
       <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-      <link rel="manifest" href="/site.webmanifest">
-      <meta name="msapplication-TileColor" content="#da532c">
+      <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+      <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
    </head>
@@ -45,7 +55,7 @@
             <div>
                <!-- <img id="winner-img" class="player-img" src=""/> -->
                <img id="winner-gif" class="player-img" src="" alt="" />
-               <img id="loser-gif" class="player-img" style="transform: rotateY(180deg);" src="" alt="" />
+               <img id="loser-gif" class="player-img" style="transform: rotateY(180deg)" src="" alt="" />
             </div>
             <div>
                <button class="rematch">Play!</button>
@@ -56,16 +66,15 @@
       <div id="rules-modal" class="rules-modal">
          <div class="modal-content">
             <span id="close-btn" class="close-btn">✗</span>
-            <h1>Game Rules</h1>
             <ul>
-               <li>Players can move up to 3 spaces per turn</li>
+               <li><img class="stamp" src="images/stamp.png" alt=""></li>
+               <li>Players can move up to 3 spaces per turn.</li>
                <li>Landing on a weapon will pick it up and drop the old one.</li>
-               <li>Landing on a bomb will deal a damage of 15 points</li>
-               <li>Potion drink heals player by 15 points</li>
+               <li>Landing on a bomb will deal a damage of 15 points.</li>
+               <li>Potion drink heals player by 15 points.</li>
                <li>When players cross paths, battle begins.</li>
                <li>Player on turn attacks first.</li>
                <li>At the end of turn a player can choose to defend until next turn.</li>
-               <li>Landing on a bomb will deal damage of 15 points</li>
             </ul>
          </div>
       </div>

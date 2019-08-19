@@ -1,7 +1,7 @@
 function startAll() {
     startModal.style.display = 'block';
     endModal.style.display = 'none';
-    $.playSound('sounds/loop-1.mp3');
+    // $.playSound('sounds/loop-1.mp3');
     $('.fightButton1').hide();
     $('.fightButton2').hide();
     $('#fight').hide();
@@ -11,31 +11,31 @@ function startAll() {
 /*============== Object for players =================*/
 // Weapons object
 const weapons = [{
-        name: 'Dagger',
+        name: 'Fury-Dagger',
         damage: 20,
         className: 'weapon-1',
         image: 'images/dagger.png'
     },
     {
-        name: 'Red Blade',
+        name: 'Red-Blade',
         damage: 25,
         className: 'weapon-2',
         image: 'images/dagger-two.png'
     },
     {
-        name: 'Sword',
+        name: 'Long-Sword',
         damage: 30,
         className: 'weapon-3',
         image: 'images/sword.png'
     },
     {
-        name: 'Hammer',
+        name: 'Mighty-Hammer',
         damage: 35,
         className: 'weapon-4',
         image: 'images/hammer.png'
     },
     {
-        name: 'Staff',
+        name: 'Energy-Staff',
         damage: 40,
         className: 'weapon-5',
         image: 'images/staff.png'
@@ -241,7 +241,21 @@ function movePlayer(player) {
             }
         }
         pathHighlight();
+        facePlayers();
     });
+}
+
+function facePlayers() {
+    if (player1.position.x < player2.position.x) {
+        $('.player-1').css('transform', 'none');
+    } else {
+        $('.player-1').css('transform', 'rotateY(180deg)');
+    }
+    if (player2.position.x > player1.position.x) {
+        $('.player-2').css('transform', 'rotateY(180deg)');
+    } else {
+        $('.player-2').css('transform', 'none');
+    }
 }
 
 function getPlayerPosition() {
@@ -366,10 +380,9 @@ function checkWeaponLeft(block, player) {
     if (block.dataset['x'] < player.position.x) {
         $('.possible').each(function() {
             const element = $(this);
-            const innerBlock = this;
-            if ((innerBlock.dataset['x'] < player.position.x) &&
-                (innerBlock.dataset['y'] == player.position.y) &&
-                innerBlock.dataset['x'] > block.dataset['x']) {
+            if ((this.dataset['x'] < player.position.x) &&
+                (this.dataset['y'] == player.position.y) &&
+                 (this.dataset['x'] > block.dataset['x'])) {
                 if (element.hasClass('weapon') || element.hasClass('bomb') || element.hasClass('potion')) {
                     weaponChange(element, player);
                 }
@@ -383,10 +396,9 @@ function checkWeaponRight(block, player) {
     if (block.dataset['x'] > player.position.x) {
         $('.possible').each(function() {
             const element = $(this);
-            const innerBlock = this;
-            if ((innerBlock.dataset['x'] > player.position.x) &&
-                (innerBlock.dataset['y'] == player.position.y) &&
-                (innerBlock.dataset['x'] < block.dataset['x'])) {
+            if ((this.dataset['x'] > player.position.x) &&
+                (this.dataset['y'] == player.position.y) &&
+                (this.dataset['x'] < block.dataset['x'])) {
                 if (element.hasClass('weapon') || element.hasClass('bomb') || element.hasClass('potion')) {
                     weaponChange(element, player);
                 }
@@ -400,10 +412,9 @@ function checkWeaponUnder(block, player) {
     if (block.dataset['y'] < player.position.y) {
         $('.possible').each(function() {
             const element = $(this);
-            const innerBlock = this;
-            if ((innerBlock.dataset['y'] < player.position.y) &&
-                (innerBlock.dataset['x'] == player.position.x) &&
-                innerBlock.dataset['y'] > block.dataset['y']) {
+            if ((this.dataset['y'] < player.position.y) &&
+                (this.dataset['x'] == player.position.x) &&
+                (this.dataset['y'] > block.dataset['y'])) {
                 if (element.hasClass('weapon') || element.hasClass('bomb') || element.hasClass('potion')) {
                     weaponChange(element, player);
                 }
@@ -418,10 +429,9 @@ function checkWeaponOver(block, player) {
     if (block.dataset['y'] > player.position.y) {
         $('.possible').each(function() {
             const element = $(this);
-            const innerBlock = this;
-            if ((innerBlock.dataset['y'] > player.position.y) &&
-                (innerBlock.dataset['x'] == player.position.x) &&
-                innerBlock.dataset['y'] < block.dataset['y']) {
+            if ((this.dataset['y'] > player.position.y) &&
+                (this.dataset['x'] == player.position.x) &&
+                (this.dataset['y'] < block.dataset['y'])) {
                 if (element.hasClass('weapon') || element.hasClass('bomb') || element.hasClass('potion')) {
                     weaponChange(element, player);
                 }
@@ -479,7 +489,7 @@ function playerEncounter() {
     getPlayerPosition();
     const xPosition = Math.abs(Number(player1.position.x) - Number(player2.position.x));
     const yPosition = Math.abs(Number(player2.position.y) - Number(player1.position.y));
-    return ((xPosition == 0) && (yPosition == 1)) || ((yPosition == 0) && (xPosition == 1))
+    return ((xPosition === 0) && (yPosition === 1)) || ((yPosition === 0) && (xPosition === 1))
 };
 
 /*=============== Player stats display ==================*/
