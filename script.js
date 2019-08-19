@@ -1,7 +1,7 @@
 function startAll() {
     startModal.style.display = 'block';
     endModal.style.display = 'none';
-    // $.playSound('sounds/loop-1.mp3');
+    $.playSound('sounds/loop-1.mp3');
     $('.fightButton1').hide();
     $('.fightButton2').hide();
     $('#fight').hide();
